@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import AppRouter from 'components/Router';
-import firebase from 'firebasePool';
-import {authService} from 'firebasePool';
+import {firebaseInstance} from 'fbase';
+import {authService} from 'fbase';
 
 function App() {
-  const auth = firebasePool.auth();
-  const [isLogin, setIsLogin] = useState(authService.currentUser);
+console.log(firebaseInstance)
+console.log(firebaseInstance.auth())
+
+  const auth = firebaseInstance.auth();
+  const [isLogin, setIsLogin] = useState(firebaseInstance.currentUser);
+  //const [isLogin, setIsLogin] = useState(false);
 
   return (
   <>
