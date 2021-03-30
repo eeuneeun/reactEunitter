@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {HashRouter, Route, Switch} from "react-router-dom";
+import {HashRouter, Redirect, Route, Switch} from "react-router-dom";
 import Home from '../routes/Home';
 import Auth from '../routes/Auth';
 import Profile from '../routes/MyProfile';
@@ -24,6 +24,7 @@ return (
             <Route exact path="/">
                 <Auth />
             </Route> 
+            <Redirect from="*" to="/" />
             </>
             )}
         </Switch>
