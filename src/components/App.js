@@ -9,11 +9,13 @@ function App() {
 
   const [init, setInit] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [userObj, setUserObj] = useState(null);
   
   useEffect(()=>{
     authService.onAuthStateChanged((user) => {
       if(user){
         setIsLogin(true)
+        setUserObj(user)
       }else{
         setIsLogin(false)
       }
@@ -25,7 +27,7 @@ function App() {
 
   return (
   <>
-  { init ? <AppRouter isLogin={isLogin}/> : "로딩중~" }
+  { init ? <AppRouter isLogin={isLogin} userObj={userObj}/> : "로딩중~" }
   <footer>&copy; Euitter {new Date().getFullYear()}</footer>
   </>
   )

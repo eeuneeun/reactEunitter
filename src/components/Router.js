@@ -5,7 +5,7 @@ import Auth from '../routes/Auth';
 import Profile from '../routes/MyProfile';
 import Nav from './Nav';
 
-const AppRouter = ({isLogin}) => {
+const AppRouter = ({isLogin, userObj}) => {
 return (
     <HashRouter>
         {isLogin && <Nav />}
@@ -13,7 +13,7 @@ return (
             {isLogin ? (
             <>
             <Route exact path="/">
-                <Home />
+                <Home userObj={userObj}/>
             </Route>
             <Route exact path="/profile">
                 <Profile />
