@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const nav = () =>{
+const Nav = ({userObj}) =>{
     return(
         <nav>
             <ul>
@@ -9,11 +9,11 @@ const nav = () =>{
                     <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/profile">My Profile</Link>
+                    <Link to="/profile">{userObj.displayName} 님 환영합니다</Link>
                 </li>
             </ul>
         </nav>
     )
 }
 
-export default nav;
+export default Nav;

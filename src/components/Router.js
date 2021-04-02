@@ -5,18 +5,18 @@ import Auth from '../routes/Auth';
 import Profile from '../routes/MyProfile';
 import Nav from './Nav';
 
-const AppRouter = ({isLogin, userObj}) => {
+const AppRouter = ({isLogin, userObj, refreshUser}) => {
 return (
     <HashRouter>
-        {isLogin && <Nav />}
+        {isLogin && <Nav userObj={userObj} />}
         <Switch>
             {isLogin ? (
             <>
             <Route exact path="/">
-                <Home userObj={userObj}/>
+                <Home userObj={userObj} />
             </Route>
             <Route exact path="/profile">
-                <Profile />
+                <Profile userObj={userObj} refreshUser={refreshUser} />
             </Route> 
             </>
             ):(
