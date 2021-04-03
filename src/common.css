@@ -1,0 +1,67 @@
+*, :focus, :active{margin: 0; padding:0; box-sizing: border-box; color: #666;border:0;offset: 0;font-size: 13px;list-style: none;}
+
+
+html, #root{width: 100%; height:100vh; background: #000;}
+
+.flex-col{display: flex; align-items: center; justify-content: space-between;}
+.flex-col-center{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+
+
+.btn{width:250px; color:#fff; background: #1da1f2; border-radius: 15px; padding: 5px 10px; margin: 5px 0;}
+.btn:hover{cursor: pointer;}
+
+.google{background: #da1c1c;}
+.github{background: #666666;}
+.logout{background: #868686; width:350px; margin: 0 auto;}
+
+/* custom */
+.home-title{color: #fff !important; margin-bottom: 30px; font-size: 30px; text-decoration: none; display: block;}
+
+form{width: 100%; max-width: 350px; margin:0 auto; position: relative;}
+    form input,
+    .auth form input:focus,
+    .auth form input:active{width:100%;height: 30px; padding: 0 10px; margin: 2.5px 0; border-radius:15px;}
+    form .save{position: absolute; width: 40px; height: 32px; border-radius: 20px; margin: 1px 0; top:-1px; right:0; cursor: pointer; color: #fff; background: #00b7ff;}
+
+/* Auth */
+.auth {width:100%; height:calc(100% - 50px); text-align: center; }
+
+    .auth form{margin-bottom: 20px;}
+        .auth form input,
+        .auth form input:focus,
+        .auth form input:active{width:250px; height: 30px; padding: 0 10px; margin: 2.5px 0; border-radius:15px;}
+        .auth form input[type="submit"]{background: #1da1f2; color:#fff; margin-bottom: 0}
+        .auth form .is-login{ font-size: 13px; margin: 10px; cursor: pointer; color: #00b7ff;}
+        .auth form .is-login:hover{border-bottom: 1px solid #1da1f2;}
+
+    
+    .auth .btn-wrap{ width: 250px;}
+        .auth .btn-wrap button{width: 100%; margin: 2.5px 0;}
+
+/* Nav */
+nav{width: 100%; height: 100px; padding: 50px; text-align: center;}
+    nav ul li:first-child a{ margin-bottom: 5px;}
+    nav ul li a:last-child{color:#00b7ff;}
+
+/* Home */
+.home {width:100%; text-align: center; }
+
+.home form{width:350px; }
+    .home form .file{padding: 0 5px; border-radius: 0;}
+    
+    .home .preview-img{width: 250px; position: relative;}
+        .home .preview-img img{width: 100%;}
+        .home .preview-img button{ position: absolute; width: 30px; height: 30px; background: #00b7ff;top:0; right:0; color: #fff;}    
+
+
+.home .msg-list{width: 350px; margin-top: 100px;}
+    .home .msg-list .msg-item{width: 100%; border: 1px solid #00b7ff; border-radius: 15px; padding: 10px 15px; margin: 10px 0; position: relative;}
+    .home .msg-list .msg-item img{width: 100%; margin-top: 10px;}
+    .home .msg-list .msg-item h4{color: #fff; font-weight: 400; font-size: 14px; text-align: left;}
+
+        .home .msg-list .msg-item button{width: 30px; height: 30px; position: absolute; top:5px; right:5px; background: none;}
+        .home .msg-list .msg-item button.msg-mod{right:30px;}
+
+.profile{height: 60%;}
+
+footer{text-align: center; color: #fff;}

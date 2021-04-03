@@ -1,5 +1,7 @@
 import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Euneet = ({euneetObj, isMine}) =>{
     //수정중인지 아닌지 판별하는 상태값
@@ -35,7 +37,7 @@ const Euneet = ({euneetObj, isMine}) =>{
 
     return(
         <>
-        <div key={euneetObj.id}>
+        <div key={euneetObj.id} className="msg-item">
             {editing ? (
                 <>
                 <form onSubmit={onSubmitForEdit}>
@@ -46,13 +48,17 @@ const Euneet = ({euneetObj, isMine}) =>{
             ):(
                 <>
                 <h4>{euneetObj.msg}</h4>
-                {euneetObj.img && <img src={euneetObj.img} alt="업로드 된 이미지" width={100} />}
-                </>
-            )}
-            {isMine && (
-                <>
-                <button onClick={onClickForDel}>삭제</button>
-                <button onClick={toggleEditing}>수정</button>
+                {isMine && (
+                    <>
+                    <button className="msg-del fas fa-pen" onClick={onClickForDel}>
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                    <button className="msg-mod" onClick={toggleEditing}>
+                        <FontAwesomeIcon icon={faPen} />
+                    </button>
+                    </>
+                )}
+                {euneetObj.img && <img src={euneetObj.img} alt="업로드 된 이미지" />}
                 </>
             )}
         </div>

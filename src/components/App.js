@@ -17,13 +17,13 @@ function App() {
     authService.onAuthStateChanged((user) => {
       if(user){
         setIsLogin(true);
-        setUserObj(user);
-        //user 객체의 일정 부문만 가지고 오는 방법
-        // setUserObj({
-        //   displayName: user.displayName,
-        //   uid: user.uid,
-        //   updateProfile: (args) => user.updateProfile(args)
-        // })
+        // setUserObj(user);
+        // user 객체의 일정 부문만 가지고 오는 방법
+        setUserObj({
+          displayName: user.displayName,
+          uid: user.uid,
+          updateProfile: (args) => user.updateProfile(args)
+        })
       }else{
         setIsLogin(false)
       }

@@ -3,13 +3,17 @@ import {Link} from "react-router-dom";
 
 const Nav = ({userObj}) =>{
     return(
-        <nav>
+        <nav className="flex-col-center">
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="home-title">Eunitter</Link>
                 </li>
                 <li>
-                    <Link to="/profile">{userObj.displayName} 님 환영합니다</Link>
+                    <Link to="/profile">{userObj.displayName ? (
+                    userObj.displayName+"님 환영합니다!"
+                    ):(
+                        "회원님 환영합니다!"
+                    )}</Link>
                 </li>
             </ul>
         </nav>

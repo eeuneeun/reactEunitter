@@ -45,22 +45,19 @@ const onSocialClick = (e) => {
     }
 
     const data = authService.signInWithPopup(provider);
-
-    console.log(data)
 }
 return (
-    <div>
-        <h1>Auth</h1>
-        <form onSubmit={onSubmit}>
+    <div className="auth flex-col-center">
+        <h1 className="home-title">Eunitter</h1>
+        <form onSubmit={onSubmit} className="flex-col-center">
             <input type="email" name="email" placeholder="아이디" required onChange={onChage} />
             <input type="password" name="password" placeholder="비밀번호" required onChange={onChage} />
             <input type="submit" value={newAccount ? "이메일 회원가입" : "로그인"} />
-            <span onClick={chkAccount}>{newAccount ? "로그인" : "회원가입"}</span>
-            <span>{error}</span>
+            <span className="is-login" onClick={chkAccount}>{newAccount ? "기존의 아이디로 로그인하기" : "회원가입"}</span>
         </form>
-        <div>
-            <button onClick={onSocialClick} name="google">GOOGLE 로그인</button>
-            <button onClick={onSocialClick} name="github">GITHUB 로그인</button>
+        <div className="btn-wrap flex-col-center">
+            <button  className="google btn" onClick={onSocialClick} name="google">GOOGLE 로그인</button>
+            <button  className="github btn" onClick={onSocialClick} name="github">GITHUB 로그인</button>
         </div>
     </div>
 )

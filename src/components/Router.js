@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {HashRouter, Redirect, Route, Switch} from "react-router-dom";
 import Home from '../routes/Home';
 import Auth from '../routes/Auth';
-import Profile from '../routes/MyProfile';
+import Profile from '../routes/Profile';
 import Nav from './Nav';
 
 const AppRouter = ({isLogin, userObj, refreshUser}) => {
