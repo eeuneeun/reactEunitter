@@ -1,10 +1,14 @@
-import React, {useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { authService } from 'fbase';
+import { authService, dbService } from 'fbase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import Euneet from '../components/Euneet';
 
 const Profile = ({userObj, refreshUser}) => {
+    const [euneets, setEuneets] = useState([]);
+    const [euneet, setEuneet] = useState([]);
+
     const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
     const history = useHistory();
     
@@ -25,17 +29,44 @@ const Profile = ({userObj, refreshUser}) => {
             refreshUser();
         }
     }
+
+    useEffect(()=>{
+        dbService
+            .collection("euneets")
+            .where("createId","==", userObj.uid)
+            .orderBy("createdAt", "desc")
+            .onSnapshot((snapshot) => {
+                const euneetArr = snapshot.docs.map((msg) => ({
+                    id: msg.id,
+                    ...msg.data(),
+                }));
+            setEuneets(euneetArr);
+        });
+        console.log(euneets)
+    },[])
     
     return(
         <>
         <div className="profile flex-col-center">
             <form onSubmit={onSubmitForUpdateProfile} className="flex-center">
-                <input type="text" placeholder={userObj.displayName} onChange={onChangeForNewName}/>
+                <input type="text" placeholder={`${userObj.displayName}님 수정할 이름을 입력해주세요!`} onChange={onChangeForNewName}/>
                 <button className="save">
-                    <FontAwesomeIcon icon={faPen} color="green"/>
+                    <FontAwesomeIcon icon={faPen}/>
                 </button>
             </form>
             <button onClick={onClickForLogout} className="btn logout">로그아웃</button>
+
+            <div className="home flex-col-center">
+                <div className="msg-list">
+                    {euneets.map((euneet) => (
+                        <Euneet
+                            key={euneet.id}
+                            euneetObj={euneet}
+                            isMine={true}
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
         </>
     )

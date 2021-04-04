@@ -43,7 +43,7 @@ const Euneet = ({euneetObj, isMine}) =>{
                 <form onSubmit={onSubmitForEdit}>
                     <input type="text" placeholder={euneetObj.msg} maxLength={120} value={newEuneet} onChange={onChagForEdit} />
                 </form>
-                <button className="ok" onClick={toggleEditing}>확인</button>
+                <button className="ok" onClick={onSubmitForEdit}>확인</button>
                 </>
             ):(
                 <>

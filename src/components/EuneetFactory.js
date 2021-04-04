@@ -27,6 +27,7 @@ const EuneetFactory = ({ userObj }) =>{
         setEuneet("")
         setImg("");
     }
+    
     const onChage = (e) =>{
         const {target : {value}} = e;
         setEuneet(value);
