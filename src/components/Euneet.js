@@ -1,7 +1,7 @@
 import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Euneet = ({euneetObj, isMine}) =>{
     //수정중인지 아닌지 판별하는 상태값

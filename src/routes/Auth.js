@@ -35,7 +35,7 @@ const onSubmit = async (e) =>{
 }
 
 const chkAccount = () => setNewAccount(preV => !preV)
-const onSocialClick = (e) => {
+const onSocialClick = async (e) => {
     const {target:{name}} = e;
     let provider;
     if(name === "google"){
@@ -44,7 +44,7 @@ const onSocialClick = (e) => {
         provider = new firebaseInstance.auth.GithubAuthProvider();
     }
 
-    const data = authService.signInWithPopup(provider);
+    await authService.signInWithPopup(provider);
 }
 return (
     <div className="auth flex-col-center">
